@@ -20,9 +20,13 @@ function Nav() {
                 <img src={LogoCSS} alt="CSS" />
                 CSS 3
             </Link>
-            <Link to="/survey">
+            <Link to="/survey" className='JS_Max'>
                 <img src={LogoJS} alt="Logo JS" />
                 JAVA SCRIPT
+            </Link>
+            <Link to="/survey" className='JS_Min'>
+                <img src={LogoJS} alt="Logo JS" />
+                JS
             </Link>
             <Link to="/survey">
                 <img src={LogoNode} alt="node JS" />
