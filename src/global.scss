@@ -22,9 +22,10 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  height: 100%;
+  width: 100%;
   padding-top: 0px;
   position: relative;
+  margin-left: auto;
 }
 
 .border-overlay-title {
@@ -36,6 +37,10 @@ header {
   height: 65px;
   z-index: 2;
   pointer-events: none;
+  @media screen and (max-width: 880px) {
+    width: 105%;
+    margin-top: 95px;
+  }
 }
 
 .my-frame-Title {
@@ -46,7 +51,7 @@ header {
   justify-content: center;
   background-image: url(./assets/Fond_anim.gif);
   background-repeat: repeat;
-  background-size: 32px 64px;
+  background-size: 32px 49px;
   opacity: 0.7;
   text-align: center;
   width: 35%;
@@ -56,6 +61,12 @@ header {
 
   $calculationNav: calc(100% - 35px);
   clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  @media screen and (max-width: 880px) {
+    width: 100%;
+    left: 0; // Ajustez la position de gauche
+    transform: none; // Supprimez la translation
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 
   h1 {
     font-weight: bold;
@@ -64,6 +75,15 @@ header {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin: 0;
     z-index: 3;
+    @media screen and (max-width: 1370px) {
+      font-size: 30px;
+    }
+    @media screen and (max-width: 1245px) {
+      font-size: 25px;
+    }
+    @media screen and (max-width: 980px) {
+      font-size: 20px;
+    }
   }
 }
 
@@ -79,6 +99,10 @@ a {
   margin-right: 30px;
   width: 80%;
   align-items: flex-end;
+
+  @media screen and (max-width: 880px) {
+    margin-top: 175px;
+  }
 }
 
 .border-overlay-nav {
@@ -90,6 +114,10 @@ a {
   height: 81%; // Ajout de la hauteur
   pointer-events: none;
   z-index: 1;
+
+  @media screen and (max-width: 880px) {
+    display: none;
+  }
 }
 
 nav {
@@ -107,12 +135,27 @@ nav {
   padding: 20px;
   background-image: url(./assets/Fond_anim.gif);
   background-repeat: repeat;
-  background-size: 32px 64px;
+  background-size: 32px 49px;
   opacity: 0.7;
   text-align: center;
 
   $calculationNav: calc(100% - 35px);
   clip-path: polygon(0 0, #{$calculationNav} 0%, 100% 35px, 100% #{$calculationNav}, #{$calculationNav} 100%, 0 100%);
+  
+  @media screen and (max-width: 880px) {
+    position: fixed; // Permet au .my-frame-Nav d'être positionné par rapport à son contenant
+    top: auto; // Ajuste la position verticale si nécessaire
+    left: auto; // Ajuste la position horizontale si nécessaire
+    transform: none; // Supprime la translation
+    width: 100%; // Prend toute la largeur
+    margin-top: 49px; // Ajoute un espace entre le titre et la navigation
+    flex-direction: row; // Change la disposition à l'horizontale
+    height: 100px; // Ajuste la hauteur si nécessaire
+    z-index: 1;
+
+    clip-path: polygon(0 0, 100% 0, 100% 70%, 75% 100%, 25% 100%, 0% 70%);
+
+  }
 
   a {
     display: flex;
@@ -135,6 +178,28 @@ nav {
       &:hover {
         opacity: 1;
         color: cyan;
+      }
+      @media screen and (max-height: 850px) {
+        width: auto;
+      height: 80px;
+      }
+      @media screen and (max-height: 760px) {
+        width: auto;
+      height: 70px;
+      }
+      @media screen and (max-height: 700px) {
+        width: auto;
+      height: 60px;
+      }
+      @media screen and (max-height: 650px) {
+        width: auto;
+      height: 50px;
+      }
+      @media screen and (max-width: 880px) {
+        width: auto;
+      height: 50px;
+      margin-left: 30px;
+      margin-right: 30px;
       }
     }
   }
