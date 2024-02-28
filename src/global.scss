@@ -1,0 +1,168 @@
+$offset: 20px;
+
+* {
+  font-family: "Anta", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(./assets/BG_PC.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  padding-top: 0px;
+  position: relative;
+}
+
+.border-overlay-title {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36%;
+  height: 65px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.my-frame-Title {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/Fond_anim.gif);
+  background-repeat: repeat;
+  background-size: 32px 64px;
+  opacity: 0.7;
+  text-align: center;
+  width: 35%;
+  height: 50px;
+  margin-top: 0px;
+  z-index: 1;
+
+  $calculationNav: calc(100% - 35px);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+
+  h1 {
+    font-weight: bold;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin: 0;
+    z-index: 3;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.body {
+  display: flex;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: 30px;
+  width: 80%;
+  align-items: flex-end;
+}
+
+.border-overlay-nav {
+  position: fixed;
+  top: 50%; // Centrer verticalement
+  left: 0;
+  transform: translateY(-50%); // Centrer verticalement
+  width: 170px;
+  height: 81%; // Ajout de la hauteur
+  pointer-events: none;
+  z-index: 1;
+}
+
+nav {
+  position: fixed;
+  top: 50%; // Centrer verticalement
+  left: 0;
+  transform: translateY(-50%); // Centrer verticalement
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+  height: 81%; // Ajout de la hauteur
+  width: 160px;
+  padding: 20px;
+  background-image: url(./assets/Fond_anim.gif);
+  background-repeat: repeat;
+  background-size: 32px 64px;
+  opacity: 0.7;
+  text-align: center;
+
+  $calculationNav: calc(100% - 35px);
+  clip-path: polygon(0 0, #{$calculationNav} 0%, 100% 35px, 100% #{$calculationNav}, #{$calculationNav} 100%, 0 100%);
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    font-family: "Anta", sans-serif;
+    font-weight: 400, bold;
+    font-style: normal;
+    font-size: 18px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    img {
+      width: auto;
+      height: 100px;
+      opacity: 0.7;
+      &:hover {
+        opacity: 1;
+        color: cyan;
+      }
+    }
+  }
+}
+
+
+.my-frame {
+  flex-grow: 1;
+  padding: 20px;
+  background-image: url(./assets/Fond_anim.gif);
+  background-repeat: repeat;
+  background-size: 32px 64px;
+  opacity: 0.7;
+  text-align: left;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+
+  $calculation: calc(100% - #{$offset});
+  clip-path: polygon(#{$calculation} 0, 100% #{$offset}, 100% 100%, 0 100%, 0 0);
+
+  border: 2px solid black;
+
+  p {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: rgb(255, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+}
