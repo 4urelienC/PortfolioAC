@@ -50,24 +50,12 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-image: url(./assets/Fond_anim.gif);
-  background-repeat: repeat;
-  background-size: 32px 49px;
-  opacity: 0.7;
-  text-align: center;
   width: 35%;
   height: 50px;
   margin-top: 0px;
   z-index: 1;
-
-  $calculationNav: calc(100% - 35px);
   clip-path: polygon(0 0, 100% 0, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
-  @media screen and (max-width: 880px) {
-    width: 100%;
-    left: 0; // Ajustez la position de gauche
-    transform: none; // Supprimez la translation
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
+  opacity: 0.9;
 
   h1 {
     font-weight: bold;
@@ -86,11 +74,27 @@ header {
       font-size: 20px;
     }
   }
-}
 
-a {
-  text-decoration: none;
-  color: inherit;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(./assets/Fond_anim.gif);
+    background-repeat: repeat;
+    background-size: 32px 49px;
+    opacity: 0.7; /* Opacité uniquement pour l'image de fond */
+    z-index: -1;
+    
+  }
+  @media screen and (max-width: 880px) {
+    width: 100%;
+    left: 0;
+    transform: none;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 }
 
 .body {
@@ -109,6 +113,11 @@ a {
     margin-right: 0;
     align-items: center;
   }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .border-overlay-nav {
@@ -239,12 +248,10 @@ nav {
 }
 
 .my-frame {
+  position: relative; // Ajout d'une position relative pour le positionnement absolu du pseudo-élément
   flex-grow: 1;
   padding: 20px;
-  background-image: url(./assets/Fond_anim.gif);
-  background-repeat: repeat;
   background-size: 32px 64px;
-  opacity: 0.7;
   text-align: left;
   margin-top: 20px;
   margin-left: 10px;
@@ -262,6 +269,10 @@ nav {
     color: rgb(255, 255, 255);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 
+    @media screen and (max-width: 950px) {
+      margin-bottom: 10px;
+    }
+
     @media screen and (max-width: 780px) {
       font-size: 16px;
     }
@@ -269,5 +280,82 @@ nav {
     @media screen and (max-width: 330px) {
       font-size: 14px;
     }
+  }
+
+  // Pseudo-élément :before pour la background image
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(./assets/Fond_anim.gif);
+    background-repeat: repeat;
+    background-size: 32px 64px;
+    opacity: 0.7; // Opacité spécifique pour la background image
+    clip-path: inherit; // Reprend le clip-path du conteneur parent
+    z-index: -1; // Place le pseudo-élément en arrière du contenu principal
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    margin-right: 20px;
+    font-size: 18px;
+      font-weight: bold;
+      color: rgb(255, 255, 255);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+      &:hover{
+        color:rgb(166, 215, 255)
+      }
+  
+      @media screen and (max-width: 950px) {
+        margin-bottom: 10px;
+      }
+  
+      @media screen and (max-width: 780px) {
+        font-size: 16px;
+      }
+  
+      @media screen and (max-width: 330px) {
+        font-size: 14px;
+      }
+  }
+}
+
+.cadres-components {
+  display:flex;
+  flex-direction: row;
+  .cadres-img {
+    width: 400px; // Permet à la largeur de l'image de s'ajuster automatiquement
+    height: 100%; // Fixez la hauteur de l'image à 100% de son conteneur
+    max-width: 400px; // Garantit que l'image ne dépasse pas la largeur de son conteneur
+    border: 1px solid black;
+
+    @media screen and (max-width: 460px) {
+      max-width: 100%;
+    }
+  }
+  @media screen and (max-width: 950px) {
+    flex-direction: column;
+  }
+}
+
+////////// ANIMATIONS //////////
+
+.fade-in-bottom {
+  animation: fadeInBottom 1s ease-out forwards; // Utilisez l'animation fadeInBottom
+}
+
+@keyframes fadeInBottom {
+  from {
+    opacity: 0.1;   // Définissez l'opacité à 0 pour le début de l'animation
+    transform: translateY(600px); // Déplacez l'élément vers le bas de 50 pixels
+  }
+  to {
+    opacity: 1;   // Augmentez l'opacité à 1 à la fin de l'animation
+    transform: translateY(0); // Remettez l'élément à sa position initiale
   }
 }

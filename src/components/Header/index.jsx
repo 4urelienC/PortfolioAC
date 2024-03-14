@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import borderTitle from '../../assets/Border-Title.png';
+import borderTitle from '../../assets/Border-Title.webp';
 
 function Header() {
     return (

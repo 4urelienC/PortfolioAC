@@ -1,12 +1,19 @@
 import React from 'react';
+import { useEffect } from 'react';
 import Cadres from '../../components/Cadres';
 import './style.scss'
 
 const Home = () => {
+
+  useEffect(() => {
+    // Fait défiler la page vers le haut lorsque le composant est monté
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <div className="home-container">
+    <div className="home-container fade-in-bottom">
       <div className="home-left">
-        <Cadres titre="DÉVELOPPEUR WEB" text="Passionné par l'informatique, l'univers du web et les nouvelles technologies, je souhaite élargir mes compétences et connaissances en m'investissant dans des projets d'envergures.
+        <Cadres titre="DÉVELOPPEUR WEB FULLSTACK" text="Passionné par l'informatique, l'univers du web et les nouvelles technologies, je souhaite élargir mes compétences et connaissances en m'investissant dans des projets d'envergures.
         C'est dans cette optique que j'ai choisit de me reconvertir pour découvrir un métier bien plus riche en oportunités professionnelles.
         /n Mon parcours a été façonné par une curiosité incessante pour comprendre les mécanismes qui composent les sites web modernes et les applications interactives. La possibilité de concrétiser des idées en ligne, de les rendre accessibles à un large public, et d'améliorer l'expérience utilisateur sont des aspects qui me motivent profondément.
         /n En tant que développeur web, je mets un point d'honneur à créer des solutions élégantes, efficaces et axées sur l'utilisateur. Mon objectif est de participer activement à la création de produits numériques qui non seulement répondent aux besoins actuels, mais anticipent également les évolutions futures du secteur." />
@@ -26,8 +33,8 @@ const Home = () => {
       <div className="home-right">
         <Cadres titre="CONTACT" text="06 06 70 79 06 /n chevalier.auel@gmail.com /n Chateaudun, France" />
         <Cadres titre="LANGUES" text="Français: Maternelle /n Anglais: Professionelle" />
-        <Cadres titre="AUTRES LOGICIELS" text="Adobe Photoshop /n Adobe Illustrator /n Adobe Premiere Pro /n Adobe After Effect /n Sony Vegas Pro /n Avid /n Final Cut 7" />
-        <Cadres titre="PASSIONS" text="Écriture /n Codage /n Cinéma /n Jeux de rôles /n Japon /n Gundam" />
+        <Cadres titre="AUTRES LOGICIELS" text="Adobe_Photoshop /n Adobe_Illustrator /n Adobe_Premiere_Pro /n Adobe_After_Effect /n Sony_Vegas_Pro /n Avid /n Final_Cut_7" />
+        <Cadres titre="PASSIONS" text="Écriture /n Codage /n Cinéma /n Jeux_de_rôles /n Japon /n Gundam" />
       </div>
     </div>
   );
